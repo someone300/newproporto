@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jam Digital</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .clock-container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    .clock-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+      font-weight: normal;
+    }
+
+    .clock {
+      font-size: 3em;
+      color: #0f0;
+      background: #222;
+      padding: 20px;
+      border-radius: 15px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock-container">
+    <h2>🕒 Jam Digital</h2>
+    <div class="clock" id="clock">00:00:00</div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      let hours = String(now.getHours()).padStart(2, '0');
+      let minutes = String(now.getMinutes()).padStart(2, '0');
+      let seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const currentTime = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('clock').innerText = currentTime;
+    }
+
+    // Update setiap detik
+    setInterval(updateClock, 1000);
+    updateClock(); // Jalankan sekali saat pertama
+  </script>
+
+</body>
+</html>
